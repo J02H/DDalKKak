@@ -574,6 +574,33 @@ def remove_bookmark(bookmark_id):
         'message': '즐겨찾기에서 삭제되었습니다.'
     })
 
+@app.route('/api/update-files', methods=['POST'])
+def update_files():
+    """서버 파일 업데이트"""
+    try:
+        data = request.get_json()
+        
+        # HTML 파일 업데이트
+        if 'html' in data:
+            with open('/usr/share/nginx/html/index.html', 'w', encoding='utf-8') as f:
+                f.write(data['html'])
+        
+        # 백엔드 파일 업데이트
+        if 'backend' in data:
+            with open('backend/app.py', 'w', encoding='utf-8') as f:
+                f.write(data['backend'])
+        
+        return jsonify({
+            'success': True,
+            'message': '파일 업데이트 완료'
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'업데이트 실패: {str(e)}'
+        }), 500
+
 if __name__ == '__main__':
     # 매일 오전 00:00에 공지사항 업데이트 스케줄 등록
     schedule.every().day.at("00:00").do(update_notices_data)
