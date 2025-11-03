@@ -3,305 +3,1160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>건국대 글로컬 공지사항</title>
+    <title>딸깍 (DDalKKak) - 건국대 글로컬캠퍼스 공지사항</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { background: white; padding: 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; border-bottom: 1px solid #ddd; }
-        .logo { height: 80px; cursor: pointer; }
-        .search-box { display: flex; align-items: center; }
-        .search-box input { padding: 15px 20px; width: 400px; border: 1px solid #ddd; border-radius: 25px; font-size: 16px; }
-        .search-box button { padding: 15px 25px; background: #036B3F; color: white; border: none; border-radius: 25px; cursor: pointer; margin-left: 10px; font-weight: bold; font-size: 16px; }
-        .colleges { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .college { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .college h3 { color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #036B3F; padding-bottom: 10px; }
-        .department { background: #ecf0f1; margin: 10px 0; padding: 10px; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
-        .department:hover { background: #036B3F; color: white; }
-        .notices { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-top: 20px; }
-        .notice { border-bottom: 1px solid #eee; padding: 15px 0; cursor: pointer; transition: background-color 0.2s; }
-        .notice:hover { background-color: #f8f9fa; }
-        .notice:last-child { border-bottom: none; }
-        .notice-title { font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
-        .notice-meta { color: #7f8c8d; font-size: 14px; }
-        .notice-detail { padding: 20px 0; }
-        .notice-detail h2 { color: #2c3e50; margin-bottom: 15px; font-size: 24px; }
-        .notice-content { background: #f8f9fa; padding: 20px; border-radius: 8px; }
-        .notice-summary, .notice-actions, .notice-tips { margin: 20px 0; padding: 20px; border-radius: 8px; }
-        .notice-summary { background: #e8f5e8; }
-        .notice-actions { background: #f0f8ff; }
-        .notice-tips { background: #fff8e1; }
-        .notice-summary h3, .notice-actions h3, .notice-tips h3 { margin: 0 0 15px 0; color: #2c3e50; }
-        .summary-content p { margin: 10px 0; line-height: 1.6; }
-        .action-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-        .action-btn { padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
-        .action-btn:not(.secondary) { background: #036B3F; color: white; }
-        .action-btn.secondary { background: #6c757d; color: white; }
-        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .notice-tips ul { margin: 0; padding-left: 20px; }
-        .notice-tips li { margin: 8px 0; line-height: 1.5; }
-        .back-btn { background: #95a5a6; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
-        .loading { text-align: center; padding: 50px; color: #7f8c8d; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; }
+        
+        /* 헤더 */
+        .header { background: #036B3F; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; background: rgba(255,255,255,0.1); padding: 12px; border-radius: 12px; cursor: pointer; transition: all 0.2s; }
+        .logo:hover { background: rgba(255,255,255,0.2); }
+        .logo img { height: 60px; width: auto; }
+        
+        /* 검색창 */
+        .search-box { display: flex; align-items: center; gap: 8px; }
+        .search-box input { padding: 12px 20px; width: 350px; border: none; border-radius: 25px; font-size: 16px; background: rgba(255,255,255,0.9); }
+        .search-box input:focus { outline: none; background: white; }
+        .search-box button { padding: 12px 20px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .search-box button:hover { background: rgba(255,255,255,0.3); }
+        
+        /* 사용자 메뉴 */
+        .user-menu { display: flex; align-items: center; gap: 12px; }
+        .user-info { color: white; font-weight: 600; }
+        .auth-btn { padding: 8px 16px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.2s; text-decoration: none; }
+        .auth-btn:hover { background: rgba(255,255,255,0.3); }
+        
+        /* 로그인 모달 */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; }
+        .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 32px; border-radius: 16px; width: 400px; max-width: 90vw; }
+        .modal h2 { margin-bottom: 24px; color: #036B3F; text-align: center; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #495057; font-weight: 600; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #036B3F; }
+        .form-buttons { display: flex; gap: 12px; margin-top: 24px; }
+        .form-buttons button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-primary { background: #036B3F; color: white; }
+        .btn-primary:hover { background: #025a33; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .btn-secondary:hover { background: #5a6268; }
+        .error-message { color: #dc3545; font-size: 14px; margin-top: 8px; }
+        
+        /* 컨테이너 */
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+        
+        /* 카테고리 탭 */
+        .category-tabs { background: white; border-radius: 16px; padding: 6px; margin-bottom: 24px; display: flex; gap: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .tab { padding: 14px 24px; border-radius: 12px; cursor: pointer; transition: all 0.3s; color: #6c757d; font-weight: 600; font-size: 14px; }
+        .tab.active { background: #036B3F; color: white; box-shadow: 0 2px 8px rgba(3,107,63,0.3); }
+        .tab:hover:not(.active) { background: #f8f9fa; color: #036B3F; }
+        
+        /* 메인 콘텐츠 */
+        .main-content { background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
+        
+        /* 사이드바 */
+        .sidebar { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); width: 220px; }
+        .sidebar h3 { margin-bottom: 20px; color: #212529; font-weight: 700; }
+        .sidebar-item { padding: 12px 16px; color: #6c757d; cursor: pointer; transition: all 0.2s; border-radius: 8px; margin-bottom: 4px; }
+        .sidebar-item:hover { color: #036B3F; background: #f8f9fa; }
+        
+        /* 테이블 */
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        .table-header { background: #f8f9fa; }
+        .table-header th { padding: 20px 24px; text-align: left; font-weight: 700; color: #495057; font-size: 14px; border-bottom: 2px solid #e9ecef; }
+        .table-header .views { text-align: center; }
+        .table-row { border-bottom: 1px solid #f1f3f4; transition: all 0.2s; cursor: pointer; }
+        .table-row:hover { background: #f8f9fa; transform: translateY(-1px); }
+        .table-row td { padding: 20px 24px; color: #212529; }
+        .table-row .title { font-weight: 600; color: #212529; }
+        .table-row .author { color: #036B3F; font-size: 14px; font-weight: 500; }
+        .table-row .date { color: #6c757d; font-size: 14px; }
+        .table-row .views { text-align: center; color: #6c757d; font-size: 14px; font-weight: 600; }
+        
+        /* 페이지네이션 */
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 24px; }
+        .pagination button { padding: 8px 12px; border: 1px solid #ddd; background: white; color: #495057; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .pagination button:hover { background: #f8f9fa; }
+        .pagination button.active { background: #036B3F; color: white; border-color: #036B3F; }
+        .pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .pagination .page-info { color: #6c757d; font-size: 14px; margin: 0 16px; }
+        
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .container { padding: 16px; }
+            .category-tabs { flex-wrap: wrap; }
+            .tab { padding: 8px 16px; font-size: 14px; }
+        }
+        
+        .loading { text-align: center; padding: 60px; color: #6c757d; }
+        .empty-state { text-align: center; padding: 60px; color: #6c757d; }
+        .empty-state h3 { margin-bottom: 8px; }
+        
+        /* 팀 소개 */
+        .team-intro { background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 24px; text-align: center; }
+        .team-intro .logo-large { width: 300px; height: 180px; margin: 0 auto 32px; }
+        .team-intro h2 { color: #036B3F; margin-bottom: 16px; font-size: 28px; }
+        .team-intro .subtitle { color: #6c757d; font-size: 18px; margin-bottom: 24px; }
+        .team-intro .description { color: #495057; line-height: 1.6; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .team-members { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+        .member { text-align: center; }
+        .member .avatar { width: 60px; height: 60px; background: #036B3F; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px; margin: 0 auto 8px; }
+        .member .name { font-weight: 600; color: #212529; }
+        .member .role { color: #6c757d; font-size: 14px; }
+        
+        /* 마이페이지 */
+        .mypage { padding: 24px; }
+        .profile-card { background: white; border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .profile-header { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
+        .profile-avatar { width: 80px; height: 80px; background: #036B3F; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 32px; }
+        .profile-info h2 { color: #212529; margin-bottom: 8px; }
+        .profile-info .subtitle { color: #6c757d; }
+        .profile-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .detail-item .label { color: #6c757d; font-size: 14px; margin-bottom: 4px; }
+        .detail-item .value { color: #212529; font-weight: 600; }
+        .bookmarks-section { background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .section-header h3 { color: #212529; margin-bottom: 24px; }
+        .bookmark-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 12px; transition: all 0.2s; }
+        .bookmark-item:hover { background: #f8f9fa; }
+        .bookmark-info .title { font-weight: 600; color: #212529; margin-bottom: 4px; }
+        .bookmark-info .meta { color: #6c757d; font-size: 14px; }
+        .bookmark-actions { display: flex; gap: 8px; }
+        .btn-small { padding: 6px 12px; font-size: 12px; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-danger:hover { background: #c82333; }
+        .btn-link { background: #036B3F; color: white; }
+        .btn-link:hover { background: #025a33; }
+        .bookmark-btn { transition: all 0.2s; opacity: 0.3; }
+        .bookmark-btn:hover { opacity: 1; transform: scale(1.2); }
+        .bookmark-btn.bookmarked { opacity: 1; }
     </style>
 </head>
 <body>
+    <!-- 헤더 -->
+    <div class="header">
+        <div class="logo" onclick="loadHome()">
+            <img src="images/ddalkkak_logo.png" alt="딸깍 로고">
+        </div>
+        
+        <!-- 검색창 -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="공지사항 검색..." onkeypress="if(event.key==='Enter') searchNotices()">
+            <button onclick="searchNotices()">검색</button>
+        </div>
+        
+        <!-- 사용자 메뉴 -->
+        <div class="user-menu" id="userMenu">
+            <button class="auth-btn" onclick="showLoginModal()">로그인</button>
+        </div>
+    </div>
+    
+    <!-- 메인 컨테이너 -->
     <div class="container">
-        <div class="header">
-            <img src="images/ddalkkak_logo.png" alt="딸깍 로고" class="logo" onclick="loadColleges()">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="공지사항 검색..." onkeypress="if(event.key==='Enter') searchNotices()">
-                <button onclick="searchNotices()">검색</button>
+        <!-- 카테고리 탭 -->
+        <div class="category-tabs">
+            <div class="tab active" data-category="all">전체</div>
+            <div class="tab" data-category="학사공지">학사공지</div>
+            <div class="tab" data-category="장학공지">장학공지</div>
+            <div class="tab" data-category="채용공지">채용공지</div>
+            <div class="tab" data-category="입학공지">입학공지</div>
+            <div class="tab" data-category="일반공지">일반공지</div>
+            <div class="tab" data-category="취업/창업">취업/창업</div>
+        </div>
+        
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div id="content">
+                <div class="loading">공지사항을 불러오는 중...</div>
             </div>
         </div>
-
-        <div id="content">
-            <div class="loading">데이터를 불러오는 중...</div>
+    </div>
+    
+    <!-- 사이드바 -->
+    <div class="sidebar">
+        <h3>바로가기</h3>
+        <div class="sidebar-item" onclick="openLink('https://www.kku.ac.kr')">🏫 건국대 글로컬</div>
+        <div class="sidebar-item" onclick="openLink('https://portal.kku.ac.kr')">📚 학생포털</div>
+        <div class="sidebar-item" onclick="openLink('https://lms.kku.ac.kr')">💻 LMS</div>
+        <div class="sidebar-item" onclick="openLink('https://library.kku.ac.kr')">📖 도서관</div>
+    </div>
+    
+    <!-- 로그인 모달 -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h2>로그인</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">아이디</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="error-message" id="loginError"></div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-secondary" onclick="hideLoginModal()">취소</button>
+                    <button type="submit" class="btn-primary">로그인</button>
+                </div>
+            </form>
+            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #eee; font-size: 14px; color: #6c757d; text-align: center;">
+                <p>계정이 없으신가요? <a href="#" onclick="showRegisterModal()" style="color: #036B3F; text-decoration: none; font-weight: 600;">회원가입</a></p>
+                <div style="margin-top: 12px;">
+                    <strong>테스트 계정:</strong><br>
+                    admin / admin123<br>
+                    student / student123<br>
+                    test / test123
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 회원가입 모달 -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <h2>회원가입</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regUsername">아이디 *</label>
+                    <input type="text" id="regUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">비밀번호 *</label>
+                    <input type="password" id="regPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="regName">이름 *</label>
+                    <input type="text" id="regName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">이메일 *</label>
+                    <input type="email" id="regEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regDepartment">학과 *</label>
+                    <select id="regDepartment" name="department" required>
+                        <option value="">학과를 선택하세요</option>
+                        <optgroup label="디자인대학">
+                            <option value="산업디자인학과">산업디자인학과</option>
+                            <option value="실내디자인학과">실내디자인학과</option>
+                            <option value="패션디자인학과">패션디자인학과</option>
+                            <option value="시각영상디자인학과">시각영상디자인학과</option>
+                            <option value="미디어콘텐츠학과">미디어콘텐츠학과</option>
+                            <option value="조형예술학과">조형예술학과</option>
+                        </optgroup>
+                        <optgroup label="과학기술대학">
+                            <option value="메카트로닉스공학과">메카트로닉스공학과</option>
+                            <option value="컴퓨터공학과">컴퓨터공학과</option>
+                            <option value="바이오메디컬공학과">바이오메디컬공학과</option>
+                            <option value="녹색기술융합학과">녹색기술융합학과</option>
+                            <option value="응용화학과">응용화학과</option>
+                        </optgroup>
+                        <optgroup label="의과대학">
+                            <option value="의예과">의예과</option>
+                            <option value="의학과">의학과</option>
+                        </optgroup>
+                        <optgroup label="의료생명대학">
+                            <option value="간호학과">간호학과</option>
+                            <option value="바이오의약학과">바이오의약학과</option>
+                            <option value="생명공학과">생명공학과</option>
+                            <option value="식품영양학과">식품영양학과</option>
+                            <option value="뷰티화장품학과">뷰티화장품학과</option>
+                            <option value="스포츠건강학과">스포츠건강학과</option>
+                            <option value="골프산업학과">골프산업학과</option>
+                        </optgroup>
+                        <optgroup label="인문사회융합대학">
+                            <option value="경영학과">경영학과</option>
+                            <option value="경제통상학과">경제통상학과</option>
+                            <option value="경찰학과">경찰학과</option>
+                            <option value="소방방재융합학과">소방방재융합학과</option>
+                            <option value="문헌정보학과">문헌정보학과</option>
+                            <option value="유아교육과">유아교육과</option>
+                            <option value="사회복지학과">사회복지학과</option>
+                            <option value="신문방송학과">신문방송학과</option>
+                            <option value="동화.한국어문화학과">동화.한국어문화학과</option>
+                            <option value="영어문화학과">영어문화학과</option>
+                        </optgroup>
+                        <optgroup label="KU자유전공학부">
+                            <option value="KU자유전공학부">KU자유전공학부</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="regStudentId">학번</label>
+                    <input type="text" id="regStudentId" name="student_id" placeholder="예: 202012345">
+                </div>
+                <div class="error-message" id="registerError"></div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-secondary" onclick="hideRegisterModal()">취소</button>
+                    <button type="submit" class="btn-primary">가입하기</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
         const API_BASE = '/api';
+        let currentCategory = 'all';
+        let allNotices = [];
+        let currentPage = 1;
+        const itemsPerPage = 10;
+        let currentUser = null;
 
-        async function loadColleges() {
+        // 초기화
+        function init() {
+            checkLoginStatus();
+            loadHome();
+            setupEventListeners();
+        }
+
+        // 이벤트 리스너 설정
+        function setupEventListeners() {
+            // 탭 클릭
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentCategory = tab.dataset.category;
+                    currentPage = 1; // 탭 변경시 첫 페이지로
+                    displayNotices(allNotices);
+                });
+            });
+        }
+
+        // 홈 페이지 로드
+        async function loadHome() {
+            // 전체 탭 활성화
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('.tab[data-category="all"]').classList.add('active');
+            currentCategory = 'all';
+            currentPage = 1;
+            
             try {
-                const response = await fetch(`${API_BASE}/colleges`);
+                const response = await fetch(`${API_BASE}/all-notices`);
                 const data = await response.json();
                 
                 if (data.success) {
-                    displayColleges(data.colleges);
+                    allNotices = flattenNotices(data.data);
+                    displayHomeWithTeamIntro();
                 }
             } catch (error) {
                 document.getElementById('content').innerHTML = '<div class="loading">서버 연결 오류</div>';
             }
         }
-
-        function displayColleges(colleges) {
-            const content = document.getElementById('content');
-            content.innerHTML = `
-                <div class="colleges">
-                    ${colleges.map(college => `
-                        <div class="college">
-                            <h3>${college}</h3>
-                            <div id="dept-${college}">학과 목록을 불러오는 중...</div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-
-            colleges.forEach(college => {
-                loadDepartments(college);
-            });
-        }
-
-        async function loadDepartments(college) {
-            try {
-                const response = await fetch(`${API_BASE}/departments/${encodeURIComponent(college)}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    const deptDiv = document.getElementById(`dept-${college}`);
-                    deptDiv.innerHTML = data.departments.map(dept => `
-                        <div class="department" onclick="loadNotices('${college}', '${dept}')">
-                            ${dept}
-                        </div>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error loading departments:', error);
-            }
-        }
-
-        async function loadNotices(college, department) {
-            document.getElementById('content').innerHTML = '<div class="loading">공지사항을 불러오는 중...</div>';
-            
-            try {
-                const response = await fetch(`${API_BASE}/notices/${encodeURIComponent(college)}/${encodeURIComponent(department)}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    displayNotices(data);
-                }
-            } catch (error) {
-                document.getElementById('content').innerHTML = '<div class="loading">공지사항 로드 오류</div>';
-            }
-        }
-
-        function displayNotices(data) {
-            const content = document.getElementById('content');
-            content.innerHTML = `
-                <button class="back-btn" onclick="loadColleges()">← 학부 목록으로</button>
-                <div class="notices">
-                    <h2>${data.college} > ${data.department}</h2>
-                    <p style="margin-bottom: 20px; color: #7f8c8d;">총 ${data.notices.length}개의 공지사항</p>
-                    ${data.notices.map((notice, index) => `
-                        <div class="notice" onclick="viewNoticeDetail('${data.college}', '${data.department}', ${index})">
-                            <div class="notice-title">${notice.title}</div>
-                            <div class="notice-meta">
-                                ${notice.date ? `📅 ${notice.date}` : ''}
-                                ${notice.date ? ' | ' : ''}🏫 ${notice.department}
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
-
-        async function searchNotices() {
-            const query = document.getElementById('searchInput').value.trim();
-            if (!query) return;
-
-            document.getElementById('content').innerHTML = '<div class="loading">검색 중...</div>';
-            
-            try {
-                const response = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    displaySearchResults(data);
-                }
-            } catch (error) {
-                document.getElementById('content').innerHTML = '<div class="loading">검색 오류</div>';
-            }
-        }
-
-        function displaySearchResults(data) {
-            const content = document.getElementById('content');
-            content.innerHTML = `
-                <button class="back-btn" onclick="loadColleges()">← 학부 목록으로</button>
-                <div class="notices">
-                    <h2>검색 결과: "${data.query}"</h2>
-                    <p style="margin-bottom: 20px; color: #7f8c8d;">총 ${data.count}개의 결과</p>
-                    ${data.results.map(notice => `
-                        <div class="notice" onclick="viewNoticeDetail('${notice.college}', '${notice.department}', ${notice.notice_id})">
-                            <div class="notice-title">${notice.title}</div>
-                            <div class="notice-meta">
-                                ${notice.date ? `📅 ${notice.date}` : ''}
-                                ${notice.date ? ' | ' : ''}🏫 ${notice.college} > ${notice.department}
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
-
-        async function viewNoticeDetail(college, department, noticeId) {
-            try {
-                const response = await fetch(`${API_BASE}/notice/${encodeURIComponent(college)}/${encodeURIComponent(department)}/${noticeId}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    displayNoticeDetail(data);
-                }
-            } catch (error) {
-                document.getElementById('content').innerHTML = '<div class="loading">공지사항 로드 오류</div>';
-            }
-        }
-
-        function getNoticeSummary(title) {
-            const keywords = {
-                '강의평가': '학생들이 수강한 강의에 대한 평가를 진행하는 기간입니다. 수강 신청 시스템에서 참여할 수 있습니다.',
-                '수강신청': '다음 학기 수강신청 기간에 대한 안내입니다. 시간표를 미리 확인하고 준비하세요.',
-                '장학': '장학금 신청 및 선발에 관한 공지입니다. 자격 요건과 신청 방법을 확인하세요.',
-                '졸업': '졸업 요건 및 절차에 관한 중요한 정보입니다. 졸업예정자는 반드시 확인하세요.',
-                '특강': '외부 전문가나 업계 전문가의 특별 강연입니다. 전공 지식 향상에 도움이 됩니다.',
-                '실습': '실무 경험을 쌓을 수 있는 실습 기회입니다. 취업 준비에 도움이 됩니다.',
-                '공모전': '다양한 공모전 참가 기회입니다. 수상 경력을 쌓고 상금도 받을 수 있습니다.',
-                '학생회': '학생회 활동 및 선거에 관한 정보입니다. 학과 대표로 활동할 기회입니다.'
-            };
-            
-            for (const [keyword, description] of Object.entries(keywords)) {
-                if (title.includes(keyword)) {
-                    return `<p><strong>🎯 주요 내용:</strong> ${description}</p>`;
-                }
-            }
-            
-            return `<p><strong>📝 공지사항:</strong> ${title}</p><p>자세한 내용은 해당 학과에 문의하시거나 공지사항을 확인해주세요.</p>`;
-        }
         
-        function openDepartmentPage(department) {
-            const deptUrls = {
-                '실내디자인학과': 'https://interior.kku.ac.kr',
-                '패션디자인학과': 'https://fashion.kku.ac.kr',
-                '시각영상디자인학과': 'https://visualad.kku.ac.kr',
-                '미디어콘텐츠학과': 'https://mediacontents.kku.ac.kr',
-                '컴퓨터공학과': 'https://cs.kku.ac.kr',
-                '생명공학과': 'https://biotech.kku.ac.kr',
-                'KU자유전공학부': 'https://kls.kku.ac.kr'
-            };
-            
-            const url = deptUrls[department] || 'https://www.kku.ac.kr';
-            window.open(url, '_blank');
-        }
-        
-        function shareNotice(title, college, department) {
-            if (navigator.share) {
-                navigator.share({
-                    title: `${title} - ${college} ${department}`,
-                    text: `건국대 글로컬캠퍼스 ${college} ${department} 공지사항`,
-                    url: window.location.href
-                });
-            } else {
-                const text = `${title} - ${college} ${department}\n${window.location.href}`;
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('공지사항 정보가 클립보드에 복사되었습니다!');
-                });
-            }
-        }
-
-        function displayNoticeDetail(data) {
-            const content = document.getElementById('content');
-            const notice = data.notice;
-            
-            content.innerHTML = `
-                <button class="back-btn" onclick="loadNotices('${data.college}', '${data.department}')">← ${data.department} 목록으로</button>
-                <div class="notices">
-                    <div class="notice-detail">
-                        <h2>${notice.title}</h2>
-                        <div class="notice-meta" style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
-                            ${notice.date ? `📅 ${notice.date}` : ''}
-                            ${notice.date ? ' | ' : ''}🏫 ${data.college} > ${data.department}
+        // 팀 소개와 공지사항 표시
+        function displayHomeWithTeamIntro() {
+            const teamIntroHTML = `
+                <div class="team-intro">
+                    <img src="images/ddalkkak_logo.png" alt="딸깍 로고" class="logo-large">
+                    <h2>Team. 딸깍</h2>
+                    <p class="subtitle">건국대 글로컬캠퍼스 공지사항 통합 서비스</p>
+                    <p class="description">
+                        건국대학교 글로컬캠퍼스의 모든 공지사항을 한 곳에서 확인할 수 있도록 만든 서비스입니다.<br>
+                        학사, 장학, 취업, 학과 공지를 쉽고 빠르게 찾아보세요.
+                    </p>
+                    <div class="team-members">
+                        <div class="member">
+                            <div class="avatar">조</div>
+                            <div class="name">조현호</div>
+                            <div class="role">Team Leader</div>
                         </div>
-                        
-                        <div class="notice-content">
-                            <div class="notice-summary">
-                                <h3>📝 공지사항 요약</h3>
-                                <div class="summary-content">
-                                    ${getNoticeSummary(notice.title)}
-                                </div>
-                            </div>
-                            
-                            <div class="notice-actions">
-                                <h3>🔗 관련 링크</h3>
-                                <div class="action-buttons">
-                                    ${notice.link && notice.link.includes('javascript:fn_goDetail') ? 
-                                        `<button class="action-btn" onclick="openDepartmentPage('${data.department}')">
-                                            🏫 ${data.department} 홈페이지 방문
-                                        </button>` : 
-                                        `<button class="action-btn" onclick="window.open('${notice.link}', '_blank')">
-                                            🔗 원문 보기
-                                        </button>`
-                                    }
-                                    <button class="action-btn secondary" onclick="shareNotice('${notice.title}', '${data.college}', '${data.department}')">
-                                        📤 공지사항 공유
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="notice-tips">
-                                <h3>💡 도움말</h3>
-                                <ul>
-                                    <li>중요한 공지사항은 북마크하여 나중에 다시 확인하세요</li>
-                                    <li>마감일이 있는 공지는 캘린더에 등록해두세요</li>
-                                    <li>궁금한 점이 있으면 해당 학과 사무실에 문의하세요</li>
-                                </ul>
-                            </div>
+                        <div class="member">
+                            <div class="avatar">김</div>
+                            <div class="name">김인준</div>
+                            <div class="role">Developer</div>
+                        </div>
+                        <div class="member">
+                            <div class="avatar">김</div>
+                            <div class="name">김윤재</div>
+                            <div class="role">Developer</div>
                         </div>
                     </div>
                 </div>
             `;
+            
+            displayNoticesWithIntro(allNotices, teamIntroHTML);
+        }
+        
+        // 팀 소개와 함께 공지사항 표시
+        function displayNoticesWithIntro(notices, introHTML) {
+            const filteredNotices = currentCategory === 'all' ? 
+                notices : notices.filter(notice => notice.category === currentCategory);
+            
+            if (filteredNotices.length === 0) {
+                document.getElementById('content').innerHTML = introHTML + `
+                    <div class="empty-state">
+                        <h3>📭 공지사항이 없습니다</h3>
+                        <p>해당 카테고리에 공지사항이 없습니다.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedNotices = filteredNotices.slice(startIndex, endIndex);
+            const totalPages = Math.ceil(filteredNotices.length / itemsPerPage);
+
+            const tableHTML = `
+                <div class="main-content">
+                    <div class="table-container">
+                        <table>
+                            <thead class="table-header">
+                                <tr>
+                                    <th style="width: 50%">제목</th>
+                                    <th style="width: 15%">작성자</th>
+                                    <th style="width: 15%">작성일</th>
+                                    <th class="views" style="width: 10%">👁 조회</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${paginatedNotices.map(notice => `
+                                    <tr class="table-row" onclick="viewNotice('${notice.id}')">
+                                        <td class="title">
+                                            ${currentUser ? `<span class="bookmark-btn" onclick="event.stopPropagation(); toggleBookmark('${notice.id}')" id="bookmark-${notice.id}" style="cursor: pointer; margin-right: 8px; font-size: 16px;">⭐</span>` : ''}
+                                            ${notice.title}
+                                        </td>
+                                        <td class="author">${notice.department || '공지사항'}</td>
+                                        <td class="date">${notice.date || '2025-11-03'}</td>
+                                        <td class="views">${notice.views}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                    ${generatePagination(totalPages, filteredNotices.length)}
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = introHTML + tableHTML;
         }
 
-        loadColleges();
+        // 공지사항 평면화
+        function flattenNotices(data) {
+            const notices = [];
+            for (const [college, departments] of Object.entries(data)) {
+                for (const [department, deptNotices] of Object.entries(departments)) {
+                    deptNotices.forEach((notice, index) => {
+                        notices.push({
+                            ...notice,
+                            college,
+                            department,
+                            id: `${college}-${department}-${index}`,
+                            category: categorizeNotice(notice.title),
+                            views: Math.floor(Math.random() * 500) + 50
+                        });
+                    });
+                }
+            }
+            return notices.sort((a, b) => new Date(b.date || '2025-01-01') - new Date(a.date || '2025-01-01'));
+        }
+
+        // 공지사항 분류
+        function categorizeNotice(title) {
+            if (title.includes('수강') || title.includes('강의') || title.includes('학사')) return '학사공지';
+            if (title.includes('장학')) return '장학공지';
+            if (title.includes('채용') || title.includes('모집')) return '채용공지';
+            if (title.includes('입학') || title.includes('신입생')) return '입학공지';
+            if (title.includes('취업') || title.includes('창업') || title.includes('인턴')) return '취업/창업';
+            return '일반공지';
+        }
+
+        // 공지사항 표시
+        function displayNotices(notices) {
+            const filteredNotices = currentCategory === 'all' ? 
+                notices : notices.filter(notice => notice.category === currentCategory);
+            
+            if (filteredNotices.length === 0) {
+                document.getElementById('content').innerHTML = `
+                    <div class="empty-state">
+                        <h3>📭 공지사항이 없습니다</h3>
+                        <p>해당 카테고리에 공지사항이 없습니다.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedNotices = filteredNotices.slice(startIndex, endIndex);
+            const totalPages = Math.ceil(filteredNotices.length / itemsPerPage);
+
+            const tableHTML = `
+                <div class="table-container">
+                    <table>
+                        <thead class="table-header">
+                            <tr>
+                                <th style="width: 50%">제목</th>
+                                <th style="width: 15%">작성자</th>
+                                <th style="width: 15%">작성일</th>
+                                <th class="views" style="width: 10%">👁 조회</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${paginatedNotices.map(notice => `
+                                <tr class="table-row" onclick="viewNotice('${notice.id}')">
+                                    <td class="title">${notice.title}</td>
+                                    <td class="author">${notice.department || '공지사항'}</td>
+                                    <td class="date">${notice.date || '2025-11-03'}</td>
+                                    <td class="views">${notice.views}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                ${generatePagination(totalPages, filteredNotices.length)}
+            `;
+            
+            document.getElementById('content').innerHTML = tableHTML;
+        }
+
+        // 공지사항 상세보기
+        async function viewNotice(noticeId) {
+            const notice = allNotices.find(n => n.id === noticeId);
+            if (!notice) return;
+            
+            // 로딩 표시
+            const loadingHTML = `
+                <div style="padding: 24px;">
+                    <button onclick="loadHome()" style="background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-bottom: 20px;">← 목록으로</button>
+                    <div style="border-bottom: 2px solid #036B3F; padding-bottom: 16px; margin-bottom: 24px;">
+                        <h1 style="color: #212529; margin-bottom: 12px;">${notice.title}</h1>
+                        <div style="color: #6c757d; display: flex; gap: 16px;">
+                            <span>📅 ${notice.date || '2025-11-03'}</span>
+                            <span>🏫 ${notice.department}</span>
+                            <span>👁 ${notice.views} 조회</span>
+                        </div>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 24px; border-radius: 8px; margin-bottom: 24px; text-align: center;">
+                        <p style="color: #495057;">🔄 공지사항 요약을 불러오는 중...</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = loadingHTML;
+            
+            try {
+                // 공지사항 내용 및 요약 크롤링
+                const response = await fetch(`${API_BASE}/notice-content`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ url: notice.link })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayNoticeDetail(notice, data.summary || {});
+                } else {
+                    displayNoticeError(notice, '요약 정보를 불러올 수 없습니다.');
+                }
+                
+            } catch (error) {
+                console.error('공지사항 요약 로드 실패:', error);
+                displayNoticeError(notice, '서버 연결 오류가 발생했습니다.');
+            }
+        }
+        
+        // 공지사항 상세 정보 표시
+        function displayNoticeDetail(notice, summary) {
+            const detailHTML = `
+                <div style="padding: 24px;">
+                    <button onclick="loadHome()" style="background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-bottom: 20px;">← 목록으로</button>
+                    
+                    <div style="border-bottom: 2px solid #036B3F; padding-bottom: 16px; margin-bottom: 24px;">
+                        <h1 style="color: #212529; margin-bottom: 12px; font-size: 24px;">${notice.title}</h1>
+                        <div style="color: #6c757d; display: flex; gap: 16px; flex-wrap: wrap;">
+                            <span>📅 ${notice.date || '2025-11-03'}</span>
+                            <span>🏫 ${notice.department}</span>
+                            <span>👁 ${notice.views} 조회</span>
+                        </div>
+                    </div>
+                    
+                    ${generateSummaryHTML(summary)}
+                    
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <button onclick="window.open('${notice.link}', '_blank')" style="background: #036B3F; color: white; border: none; padding: 16px 32px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 16px; box-shadow: 0 2px 8px rgba(3,107,63,0.3); transition: all 0.2s;" onmouseover="this.style.background='#025a33'" onmouseout="this.style.background='#036B3F'">📄 원문 보기</button>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center;">
+                        <p style="color: #6c757d; margin: 0; font-size: 14px;">💡 <strong>팁:</strong> 원문 링크에서 첨부파일 다운로드, 상세 내용 확인, 문의처 정보 등을 확인할 수 있습니다.</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = detailHTML;
+        }
+        
+        // 요약 정보 HTML 생성
+        function generateSummaryHTML(summary) {
+            if (!summary || Object.keys(summary).length === 0) {
+                return `
+                    <div style="background: white; padding: 32px; border-radius: 12px; margin-bottom: 24px; border: 1px solid #e9ecef; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="text-align: center; color: #6c757d;">
+                            <p>요약 정보를 추출할 수 없습니다. 원문을 확인해주세요.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            let summaryHTML = `
+                <div style="background: white; padding: 32px; border-radius: 12px; margin-bottom: 24px; border: 1px solid #e9ecef; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #036B3F; margin-bottom: 24px; font-size: 20px; text-align: center;">📋 공지사항 요약</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
+            `;
+            
+            // 마감일
+            if (summary.deadline) {
+                summaryHTML += `
+                    <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 18px;">⏰</span>
+                            <strong style="color: #856404;">마감일</strong>
+                        </div>
+                        <p style="color: #856404; margin: 0; font-weight: 600;">${summary.deadline}</p>
+                    </div>
+                `;
+            }
+            
+            // 장소
+            if (summary.location) {
+                summaryHTML += `
+                    <div style="background: #e3f2fd; border: 1px solid #bbdefb; border-radius: 8px; padding: 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 18px;">📍</span>
+                            <strong style="color: #1976d2;">장소</strong>
+                        </div>
+                        <p style="color: #1976d2; margin: 0;">${summary.location}</p>
+                    </div>
+                `;
+            }
+            
+            // 보상/혜택
+            if (summary.reward) {
+                summaryHTML += `
+                    <div style="background: #e8f5e8; border: 1px solid #c8e6c9; border-radius: 8px; padding: 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 18px;">🎁</span>
+                            <strong style="color: #388e3c;">보상/혜택</strong>
+                        </div>
+                        <p style="color: #388e3c; margin: 0; font-weight: 600;">${summary.reward}</p>
+                    </div>
+                `;
+            }
+            
+            // 비용
+            if (summary.cost) {
+                summaryHTML += `
+                    <div style="background: #fce4ec; border: 1px solid #f8bbd9; border-radius: 8px; padding: 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 18px;">💰</span>
+                            <strong style="color: #c2185b;">비용</strong>
+                        </div>
+                        <p style="color: #c2185b; margin: 0; font-weight: 600;">${summary.cost}</p>
+                    </div>
+                `;
+            }
+            
+            // 연락처
+            if (summary.contact) {
+                summaryHTML += `
+                    <div style="background: #f3e5f5; border: 1px solid #e1bee7; border-radius: 8px; padding: 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 18px;">📞</span>
+                            <strong style="color: #7b1fa2;">연락처</strong>
+                        </div>
+                        <p style="color: #7b1fa2; margin: 0;">${summary.contact}</p>
+                    </div>
+                `;
+            }
+            
+            summaryHTML += `</div>`;
+            
+            // 중요 날짜들
+            if (summary.important_dates && summary.important_dates.length > 0) {
+                summaryHTML += `
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: #036B3F; margin-bottom: 12px;">📅 중요 날짜</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            ${summary.important_dates.map(date => 
+                                `<span style="background: #e3f2fd; color: #1976d2; padding: 6px 12px; border-radius: 16px; font-size: 14px;">${date}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // 핵심 포인트
+            if (summary.key_points && summary.key_points.length > 0) {
+                summaryHTML += `
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: #036B3F; margin-bottom: 12px;">❗ 핵심 사항</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #495057;">
+                            ${summary.key_points.map(point => `<li style="margin-bottom: 8px;">${point}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            summaryHTML += `</div>`;
+            
+            return summaryHTML;
+        }
+        
+        // 오류 표시
+        function displayNoticeError(notice, errorMessage) {
+            const errorHTML = `
+                <div style="padding: 24px;">
+                    <button onclick="loadHome()" style="background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-bottom: 20px;">← 목록으로</button>
+                    <div style="border-bottom: 2px solid #036B3F; padding-bottom: 16px; margin-bottom: 24px;">
+                        <h1 style="color: #212529; margin-bottom: 12px;">${notice.title}</h1>
+                        <div style="color: #6c757d; display: flex; gap: 16px;">
+                            <span>📅 ${notice.date || '2025-11-03'}</span>
+                            <span>🏫 ${notice.department}</span>
+                            <span>👁 ${notice.views} 조회</span>
+                        </div>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 24px; border-radius: 8px; margin-bottom: 24px;">
+                        <p style="color: #495057; line-height: 1.6;">${errorMessage}</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="window.open('${notice.link}', '_blank')" style="background: #036B3F; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 600;">📄 원문 보기</button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = errorHTML;
+        }
+        
+
+
+        // 검색 기능
+        async function searchNotices() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+
+            const filteredNotices = allNotices.filter(notice => 
+                notice.title.toLowerCase().includes(query.toLowerCase()) ||
+                notice.department.toLowerCase().includes(query.toLowerCase())
+            );
+
+            displaySearchResults(filteredNotices, query);
+        }
+
+        // 검색 결과 표시
+        function displaySearchResults(notices, query) {
+            if (notices.length === 0) {
+                document.getElementById('content').innerHTML = `
+                    <div class="empty-state">
+                        <h3>🔍 검색 결과가 없습니다</h3>
+                        <p>"${query}"에 대한 검색 결과가 없습니다.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const tableHTML = `
+                <div style="padding: 20px; border-bottom: 1px solid #e9ecef;">
+                    <h3>검색 결과: "${query}" (${notices.length}개)</h3>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead class="table-header">
+                            <tr>
+                                <th style="width: 50%">제목</th>
+                                <th style="width: 15%">작성자</th>
+                                <th style="width: 15%">작성일</th>
+                                <th class="views" style="width: 10%">👁 조회</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${notices.map(notice => `
+                                <tr class="table-row" onclick="viewNotice('${notice.id}')">
+                                    <td class="title">${notice.title}</td>
+                                    <td class="author">${notice.department}</td>
+                                    <td class="date">${notice.date || '2025-11-03'}</td>
+                                    <td class="views">${notice.views}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = tableHTML;
+        }
+
+        // 외부 링크 열기
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+
+        // 페이지네이션 생성
+        function generatePagination(totalPages, totalItems) {
+            if (totalPages <= 1) return '';
+            
+            let paginationHTML = '<div class="pagination">';
+            
+            // 이전 버튼
+            paginationHTML += `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>‹ 이전</button>`;
+            
+            // 페이지 번호들
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(totalPages, currentPage + 2);
+            
+            for (let i = startPage; i <= endPage; i++) {
+                paginationHTML += `<button onclick="changePage(${i})" class="${i === currentPage ? 'active' : ''}">${i}</button>`;
+            }
+            
+            // 다음 버튼
+            paginationHTML += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>다음 ›</button>`;
+            
+            // 페이지 정보
+            paginationHTML += `<div class="page-info">${currentPage} / ${totalPages} 페이지 (총 ${totalItems}개)</div>`;
+            
+            paginationHTML += '</div>';
+            return paginationHTML;
+        }
+        
+        // 페이지 변경
+        function changePage(page) {
+            const filteredNotices = currentCategory === 'all' ? 
+                allNotices : allNotices.filter(notice => notice.category === currentCategory);
+            const totalPages = Math.ceil(filteredNotices.length / itemsPerPage);
+            
+            if (page < 1 || page > totalPages) return;
+            
+            currentPage = page;
+            displayNotices(allNotices);
+        }
+
+        // 로그인 상태 확인
+        async function checkLoginStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/user`, {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                if (data.success && data.logged_in) {
+                    currentUser = data.user;
+                    updateUserMenu(true);
+                } else {
+                    currentUser = null;
+                    updateUserMenu(false);
+                }
+            } catch (error) {
+                console.error('로그인 상태 확인 실패:', error);
+                updateUserMenu(false);
+            }
+        }
+        
+        // 사용자 메뉴 업데이트
+        function updateUserMenu(isLoggedIn) {
+            const userMenu = document.getElementById('userMenu');
+            
+            if (isLoggedIn) {
+                userMenu.innerHTML = `
+                    <span class="user-info" onclick="showMyPage()" style="cursor: pointer;">👤 ${currentUser}님</span>
+                    <button class="auth-btn" onclick="logout()">로그아웃</button>
+                `;
+            } else {
+                userMenu.innerHTML = `
+                    <button class="auth-btn" onclick="showLoginModal()">로그인</button>
+                `;
+            }
+        }
+        
+        // 로그인 모달 표시
+        function showLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+            document.getElementById('loginError').textContent = '';
+            document.getElementById('loginForm').reset();
+        }
+        
+        // 로그인 모달 숨기기
+        function hideLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        
+        // 회원가입 모달 표시
+        function showRegisterModal() {
+            hideLoginModal();
+            document.getElementById('registerModal').style.display = 'block';
+            document.getElementById('registerError').textContent = '';
+            document.getElementById('registerForm').reset();
+        }
+        
+        // 회원가입 모달 숨기기
+        function hideRegisterModal() {
+            document.getElementById('registerModal').style.display = 'none';
+        }
+        
+        // 로그인 처리
+        async function login(username, password) {
+            try {
+                const response = await fetch(`${API_BASE}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentUser = data.user;
+                    updateUserMenu(true);
+                    hideLoginModal();
+                    alert('로그인 성공!');
+                } else {
+                    document.getElementById('loginError').textContent = data.message;
+                }
+            } catch (error) {
+                document.getElementById('loginError').textContent = '로그인 중 오류가 발생했습니다.';
+            }
+        }
+        
+        // 로그아웃 처리
+        async function logout() {
+            try {
+                const response = await fetch(`${API_BASE}/logout`, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentUser = null;
+                    updateUserMenu(false);
+                    alert('로그아웃 되었습니다.');
+                }
+            } catch (error) {
+                console.error('로그아웃 실패:', error);
+            }
+        }
+        
+        // 회원가입 처리
+        async function register(userData) {
+            try {
+                const response = await fetch(`${API_BASE}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    hideRegisterModal();
+                    alert('회원가입이 완료되었습니다! 로그인해주세요.');
+                    showLoginModal();
+                } else {
+                    document.getElementById('registerError').textContent = data.message;
+                }
+            } catch (error) {
+                document.getElementById('registerError').textContent = '회원가입 중 오류가 발생했습니다.';
+            }
+        }
+        
+        // 로그인 폼 이벤트 리스너
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            login(username, password);
+        });
+        
+        // 회원가입 폼 이벤트 리스너
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const userData = {
+                username: formData.get('username'),
+                password: formData.get('password'),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                department: formData.get('department'),
+                student_id: formData.get('student_id')
+            };
+            register(userData);
+        });
+        
+        // 모달 외부 클릭시 닫기
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideLoginModal();
+            }
+        });
+        
+        document.getElementById('registerModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideRegisterModal();
+            }
+        });
+
+        // 마이페이지 표시
+        async function showMyPage() {
+            if (!currentUser) {
+                showLoginModal();
+                return;
+            }
+            
+            try {
+                const [profileResponse, bookmarksResponse] = await Promise.all([
+                    fetch(`${API_BASE}/profile`, { credentials: 'include' }),
+                    fetch(`${API_BASE}/bookmarks`, { credentials: 'include' })
+                ]);
+                
+                const profileData = await profileResponse.json();
+                const bookmarksData = await bookmarksResponse.json();
+                
+                if (profileData.success && bookmarksData.success) {
+                    displayMyPage(profileData.profile, bookmarksData.bookmarks);
+                }
+            } catch (error) {
+                console.error('마이페이지 로드 실패:', error);
+            }
+        }
+        
+        // 마이페이지 UI 표시
+        function displayMyPage(profile, bookmarks) {
+            const myPageHTML = `
+                <div class="mypage">
+                    <button onclick="loadHome()" style="background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-bottom: 20px;">← 홈으로</button>
+                    
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">${profile.name ? profile.name.charAt(0) : profile.username.charAt(0).toUpperCase()}</div>
+                            <div class="profile-info">
+                                <h2>${profile.name || profile.username}</h2>
+                                <p class="subtitle">${profile.department || '학과 정보 없음'}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-details">
+                            <div class="detail-item">
+                                <div class="label">아이디</div>
+                                <div class="value">${profile.username}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="label">이메일</div>
+                                <div class="value">${profile.email || '이메일 정보 없음'}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="label">학번</div>
+                                <div class="value">${profile.student_id || '학번 정보 없음'}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="label">가입일</div>
+                                <div class="value">${profile.join_date || '2025-11-03'}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bookmarks-section">
+                        <div class="section-header">
+                            <h3>🔖 내 즐겨찾기 (${bookmarks.length}개)</h3>
+                        </div>
+                        
+                        ${bookmarks.length === 0 ? `
+                            <div class="empty-state">
+                                <p>즐겨찾기한 공지사항이 없습니다.</p>
+                                <p>공지사항 제목 옆의 ☆ 버튼을 클릭하여 즐겨찾기에 추가하세요.</p>
+                            </div>
+                        ` : bookmarks.map(bookmark => `
+                            <div class="bookmark-item">
+                                <div class="bookmark-info">
+                                    <div class="title">${bookmark.title}</div>
+                                    <div class="meta">${bookmark.department} • ${bookmark.date} • 즐겨찾기 추가: ${bookmark.added_date}</div>
+                                </div>
+                                <div class="bookmark-actions">
+                                    <button class="btn-small btn-link" onclick="window.open('${bookmark.link}', '_blank')">원문보기</button>
+                                    <button class="btn-small btn-danger" onclick="removeBookmark('${bookmark.id}')">삭제</button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = myPageHTML;
+        }
+        
+        // 즐겨찾기 토글
+        async function toggleBookmark(noticeId) {
+            if (!currentUser) {
+                showLoginModal();
+                return;
+            }
+            
+            const notice = allNotices.find(n => n.id === noticeId);
+            if (!notice) return;
+            
+            try {
+                const response = await fetch(`${API_BASE}/bookmarks`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify(notice)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const btn = document.getElementById(`bookmark-${noticeId}`);
+                    if (btn) {
+                        if (btn.classList.contains('bookmarked')) {
+                            btn.textContent = '⭐';
+                            btn.classList.remove('bookmarked');
+                            alert('즐겨찾기에서 제거되었습니다!');
+                        } else {
+                            btn.textContent = '🌟';
+                            btn.classList.add('bookmarked');
+                            alert('즐겨찾기에 추가되었습니다!');
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('즐겨찾기 추가 실패:', error);
+            }
+        }
+        
+        // 즐겨찾기 삭제
+        async function removeBookmark(bookmarkId) {
+            try {
+                const response = await fetch(`${API_BASE}/bookmarks/${bookmarkId}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('즐겨찾기에서 삭제되었습니다!');
+                    showMyPage();
+                }
+            } catch (error) {
+                console.error('즐겨찾기 삭제 실패:', error);
+            }
+        }
+
+        // 초기화 실행
+        init();
     </script>
 </body>
 </html>
