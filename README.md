@@ -18,30 +18,18 @@ DDalKKak/
 
 ## 🚀 실행 방법
 
-### 🎯 원클릭 배포 (권장)
-```bash
-# 완전 자동화 배포
-./full-deploy.sh
-```
-
-**배포 옵션:**
-1. 로컬 테스트 - http://localhost
-2. 서버 배포 - 자동 서버 설정 + 배포
-3. 서버 배포 + SSL - HTTPS 자동 설정
-
-### 🛠️ 수동 배포 옵션
-
-#### 로컬 테스트
+### 💻 로컬 테스트
 ```bash
 ./deploy.sh
 ```
+실행 후 http://localhost 에서 확인
 
-#### 서버 배포
+### 🌍 AWS EC2 배포
 ```bash
-./auto-deploy.sh
+./deploy-aws.sh
 ```
 
-#### SSL 설정
+### 🔒 SSL 인증서 (선택사항)
 ```bash
 ./setup-ssl.sh
 ```
@@ -78,7 +66,7 @@ DDalKKak/
 #### 1단계: 서버 준비
 ```bash
 # 서버에 접속 후
-wget https://raw.githubusercontent.com/your-repo/DDalKKak/main/server-setup.sh
+wget https://raw.githubusercontent.com/J02H/DDalKKak/main/server-setup.sh
 chmod +x server-setup.sh
 ./server-setup.sh
 ```
@@ -89,7 +77,7 @@ chmod +x server-setup.sh
 newgrp docker
 
 # 프로젝트 클론
-git clone <repository-url>
+git clone https://github.com/J02H/DDalKKak.git
 cd DDalKKak
 
 # 배포 실행

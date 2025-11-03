@@ -1,6 +1,7 @@
 # 키 파일 (보안상 업로드 금지)
 *.pem
 *.key
+DDalKKak-Key.pem
 
 # Python
 __pycache__/
