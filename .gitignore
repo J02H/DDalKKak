@@ -1,0 +1,30 @@
+# 키 파일 (보안상 업로드 금지)
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Docker
+.dockerignore
+
+# 로그 파일
+*.log
+
+# 임시 파일
+*.tmp
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# 배포 패키지
+*.tar.gz

@@ -1,0 +1,850 @@
+{
+  "디자인대학": {
+    "산업디자인학과": [
+      {
+        "title": "HOME",
+        "link": "https://kkuid.kku.ac.kr/index.do",
+        "date": "",
+        "department": "산업디자인학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "산업디자인학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "산업디자인학과"
+      }
+    ],
+    "실내디자인학과": [
+      {
+        "title": "[기자재실, 학과 실습실 사용매뉴얼]",
+        "link": "javascript:fn_goDetail('36698','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "재학생 건의사항 및 Q&A 답변 정리 (2)",
+        "link": "javascript:fn_goDetail('34205','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "재학생 건의사항 및 Q&A 답변 정리 (1)",
+        "link": "javascript:fn_goDetail('34235','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "2025학년도 2학기 중간 강의평가 실시 안내",
+        "link": "javascript:fn_goDetail('36700','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "25년도 2학기 실내디자인학과 특강 공지문",
+        "link": "javascript:fn_goDetail('36699','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "창의예술관 미술 실기대회로 인한 출입 통제",
+        "link": "javascript:fn_goDetail('36696','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "실내디자인학과 실무전문가 특강",
+        "link": "javascript:fn_goDetail('36452','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "2025학년도 1학기 중간 강의평가 실시 안내",
+        "link": "javascript:fn_goDetail('36250','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "디자인대학 수시모집 미술실기고사로 인한 통제",
+        "link": "javascript:fn_goDetail('34638','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      },
+      {
+        "title": "졸업준비위원회 선출공지",
+        "link": "javascript:fn_goDetail('34637','N','','N')",
+        "date": "",
+        "department": "실내디자인학과"
+      }
+    ],
+    "패션디자인학과": [
+      {
+        "title": "패션디자인학과 신지현 학부생, 2025년도 한국의류학회 우수논문발표상 수상",
+        "link": "javascript:fn_goDetail('36579','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "2025년도 한국교통안전공단(TS)과 협업한 패션디자인학과, 졸업 패션쇼 [ AXIS ]",
+        "link": "javascript:fn_goDetail('36578','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "2025년 디자인대학 자유전공을 위한 패션디자인학과 전공탐색박람회",
+        "link": "javascript:fn_goDetail('36577','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "2025년도 디자인대학 체육대회에 참가한 패션디자인학과",
+        "link": "javascript:fn_goDetail('36576','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "2025년도 2학기 패션디자인학과 개강총회",
+        "link": "javascript:fn_goDetail('36575','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "2025년도 패션디자인학과 졸업 패션쇼 최종 컨펌",
+        "link": "javascript:fn_goDetail('36574','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "2025년도 디자인대학 체육대회 패션디자인학과 티셔츠 공모",
+        "link": "javascript:fn_goDetail('36573','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "2025학년도 01학기 패션디자인학과 종강총회",
+        "link": "javascript:fn_goDetail('36572','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "[2025-01학기 패션디자인학과 통합 과제전]",
+        "link": "javascript:fn_goDetail('36571','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      },
+      {
+        "title": "스승의날 행사",
+        "link": "javascript:fn_goDetail('36570','N','','N')",
+        "date": "",
+        "department": "패션디자인학과"
+      }
+    ],
+    "시각영상디자인학과": [
+      {
+        "title": "[학사일정] 2025년도 1학기 시각영상디자인학과 종강총회",
+        "link": "javascript:fn_goDetail('36306','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[특강] 디자인 작업의 확장: 디자인 밖에서 디자인 생각하기",
+        "link": "javascript:fn_goDetail('36305','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[학사일정] 사운드디자인(8258, 8259) 교외수업 실시",
+        "link": "javascript:fn_goDetail('36304','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[학사일정] 1학년 간담회",
+        "link": "javascript:fn_goDetail('36303','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[특강] 웹툰 일러스트 제작기법",
+        "link": "javascript:fn_goDetail('36302','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[학사일정] 스승의 날",
+        "link": "javascript:fn_goDetail('36300','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[학사일정] 2025 디자인대학 연합MT",
+        "link": "javascript:fn_goDetail('36299','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[학사일정] 사운드디자인(8258, 8259) 교외수업 실시",
+        "link": "javascript:fn_goDetail('36298','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[학사일정] 전공연구프로젝트3(8312, 8797) 교외수업 실시",
+        "link": "javascript:fn_goDetail('36297','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      },
+      {
+        "title": "[학사일정] 실험디자인프로젝트 교외수업 실시",
+        "link": "javascript:fn_goDetail('36296','N','','N')",
+        "date": "",
+        "department": "시각영상디자인학과"
+      }
+    ],
+    "미디어콘텐츠학과": [
+      {
+        "title": "[수상] 건국대 미디어콘텐츠학과 학생팀, 충북도청 미디어파사드 최우수상 수상",
+        "link": "javascript:fn_goDetail('36659','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "미디어콘텐츠학과 Art in Taipei 현장학습 마침",
+        "link": "javascript:fn_goDetail('35614','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "[미디어콘텐츠학과 x 뉴미디어아트연구소] Art in JEJU 현장학습 마침",
+        "link": "javascript:fn_goDetail('35521','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "2025 미디어콘텐츠 3차 졸업심사 전경",
+        "link": "javascript:fn_goDetail('36662','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "[영화보기] 9월 17일 수요일 저녁 - 스즈메의 문단속",
+        "link": "javascript:fn_goDetail('36661','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "[수상] 미디어콘텐츠학과 이영준, 블루어워즈 2025 입선",
+        "link": "javascript:fn_goDetail('36660','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "[행사] 디자인대학 연합MT (강원도 평창) 마침",
+        "link": "javascript:fn_goDetail('36475','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "미디어콘텐츠학과 서울 일러스트코리아 현장학습",
+        "link": "javascript:fn_goDetail('36441','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "[수상] 미디어콘텐츠학과 조현수, ‘제7회 인스퍼 어워드’ 영디자이너상 수상",
+        "link": "javascript:fn_goDetail('36275','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      },
+      {
+        "title": "[수상] 조윤아 학생, 제5회 시험/연구용 안전콘텐츠 공모전' 일반영상 부문에서 장려상 수상",
+        "link": "javascript:fn_goDetail('36101','N','','N')",
+        "date": "",
+        "department": "미디어콘텐츠학과"
+      }
+    ]
+  },
+  "과학기술대학": {
+    "메카트로닉스공학과": [
+      {
+        "title": "2022학년도 메카트로닉스공학과 학생회 선거 공고",
+        "link": "javascript:fn_goDetail('19610','N','','N')",
+        "date": "",
+        "department": "메카트로닉스공학과"
+      },
+      {
+        "title": "메카트로닉스공학과 축구 친선경기",
+        "link": "javascript:fn_goDetail('18777','N','','N')",
+        "date": "",
+        "department": "메카트로닉스공학과"
+      },
+      {
+        "title": "기계전자전공 배 당구대회 대진표 및 결과",
+        "link": "javascript:fn_goDetail('8681','N','','N')",
+        "date": "",
+        "department": "메카트로닉스공학과"
+      },
+      {
+        "title": "기계전자전공 배 당구대회 개최",
+        "link": "javascript:fn_goDetail('8693','N','','N')",
+        "date": "",
+        "department": "메카트로닉스공학과"
+      },
+      {
+        "title": "기계전자전공 배 당구대회 개최",
+        "link": "javascript:fn_goDetail('8680','N','','N')",
+        "date": "",
+        "department": "메카트로닉스공학과"
+      },
+      {
+        "title": "기계전자전공 배 당구대회개최",
+        "link": "javascript:fn_goDetail('8679','N','','N')",
+        "date": "",
+        "department": "메카트로닉스공학과"
+      },
+      {
+        "title": "중간고사 게릴라이벤트",
+        "link": "javascript:fn_goDetail('7007','N','','N')",
+        "date": "",
+        "department": "메카트로닉스공학과"
+      }
+    ],
+    "컴퓨터공학과": [
+      {
+        "title": "2025학년도 2학기 졸업작품(연구형,일반형) 대상 작품설명서 및 포스터 제출 안내",
+        "link": "javascript:fn_goDetail('36615','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "2025학년도 2학기 졸업작품 심사 공지",
+        "link": "javascript:fn_goDetail('36613','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "책임지도교수제 배정 결과 확인 방법",
+        "link": "javascript:fn_goDetail('36612','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "[재학생 필수]2025학년도 2학기 정기 연구실 안전교육 실시",
+        "link": "javascript:fn_goDetail('36609','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "2025학년도 학년별 단톡방 안내(2025.2.24.일자 신규 단톡방)",
+        "link": "javascript:fn_goDetail('35737','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "2025 졸업작품 지도교수 배정명단 (최종)",
+        "link": "javascript:fn_goDetail('35400','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "컴퓨터공학과 지정발전기금 유치 캠페인",
+        "link": "javascript:fn_goDetail('35318','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "컴퓨터공학과 Micro-Degree '인공지능 전문가 양성과정' 설명회",
+        "link": "javascript:fn_goDetail('34884','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "생성형 인공지능(AI) 분야 연구 및 작품 준비 학생 대상 연구윤리 안내",
+        "link": "javascript:fn_goDetail('34119','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      },
+      {
+        "title": "컴퓨터공학과 교내장학(성·신·의·건국사랑GLOCAL) 선발 기준 개정",
+        "link": "javascript:fn_goDetail('34057','N','','N')",
+        "date": "",
+        "department": "컴퓨터공학과"
+      }
+    ],
+    "녹색기술융합학과": [
+      {
+        "title": "HOME",
+        "link": "https://greentech.kku.ac.kr/index.do",
+        "date": "",
+        "department": "녹색기술융합학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "녹색기술융합학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "녹색기술융합학과"
+      }
+    ],
+    "응용화학과": [
+      {
+        "title": "HOME",
+        "link": "https://chemistry.kku.ac.kr/index.do",
+        "date": "",
+        "department": "응용화학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "응용화학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "응용화학과"
+      }
+    ]
+  },
+  "의료생명대학": {
+    "간호학과": [
+      {
+        "title": "HOME",
+        "link": "https://nursing.kku.ac.kr/index.do",
+        "date": "",
+        "department": "간호학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "간호학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "간호학과"
+      }
+    ],
+    "바이오의약학과": [
+      {
+        "title": "HOME",
+        "link": "https://biomedchem.kku.ac.kr/index.do",
+        "date": "",
+        "department": "바이오의약학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "바이오의약학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "바이오의약학과"
+      }
+    ],
+    "생명공학과": [
+      {
+        "title": "교내 특성화 교육과정 개설을 위한 학부생 인식 조사",
+        "link": "javascript:fn_goDetail('36572','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "2025학년도 동계 계절학기 예비수강신청 안내",
+        "link": "javascript:fn_goDetail('36570','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "25-2학기 신경분자생물학실험실습/바이오분석화학실험실습/생명과학기초실험2 강의실 변경 안내",
+        "link": "javascript:fn_goDetail('36565','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "2025. 8월 졸업예정자 생명공학과 졸업논문 추가 안내",
+        "link": "javascript:fn_goDetail('36553','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "생명공학과 2025-1 졸업시험 추가안내사항",
+        "link": "javascript:fn_goDetail('36290','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "2025학년도 1학기 중간 강의평가 실시 안내",
+        "link": "javascript:fn_goDetail('36228','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "2025-1 졸업논문 및 졸업시험 일정 공지",
+        "link": "javascript:fn_goDetail('35886','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "2025년 교과과정 개편에 따른 선택필수과목 (생명공학논문연구,논문실험) 대체 수강 안내",
+        "link": "javascript:fn_goDetail('35476','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "졸업논문 및 졸업시험 일정 공지",
+        "link": "javascript:fn_goDetail('34242','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      },
+      {
+        "title": "전필교과목에 대한 대체이수 과목 확대에 대한 안내",
+        "link": "javascript:fn_goDetail('33359','N','','N')",
+        "date": "",
+        "department": "생명공학과"
+      }
+    ],
+    "뷰티화장품학과": [
+      {
+        "title": "HOME",
+        "link": "https://beauty.kku.ac.kr/index.do",
+        "date": "",
+        "department": "뷰티화장품학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "뷰티화장품학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "뷰티화장품학과"
+      }
+    ],
+    "스포츠건강학과": [
+      {
+        "title": "HOME",
+        "link": "https://sports.kku.ac.kr/index.do",
+        "date": "",
+        "department": "스포츠건강학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "스포츠건강학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "스포츠건강학과"
+      }
+    ],
+    "골프산업학과": [
+      {
+        "title": "HOME",
+        "link": "https://golf.kku.ac.kr/index.do",
+        "date": "",
+        "department": "골프산업학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "골프산업학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "골프산업학과"
+      }
+    ]
+  },
+  "인문사회융합대학": {
+    "경영학과": [
+      {
+        "title": "HOME",
+        "link": "https://biz.kku.ac.kr/index.do",
+        "date": "",
+        "department": "경영학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "경영학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "경영학과"
+      }
+    ],
+    "경제통상학과": [
+      {
+        "title": "HOME",
+        "link": "https://trade.kku.ac.kr/index.do",
+        "date": "",
+        "department": "경제통상학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "경제통상학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "경제통상학과"
+      }
+    ],
+    "경찰학과": [
+      {
+        "title": "HOME",
+        "link": "https://police.kku.ac.kr/index.do",
+        "date": "",
+        "department": "경찰학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "경찰학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "경찰학과"
+      }
+    ],
+    "소방방재융합학과": [
+      {
+        "title": "HOME",
+        "link": "https://fire.kku.ac.kr/index.do",
+        "date": "",
+        "department": "소방방재융합학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "소방방재융합학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "소방방재융합학과"
+      }
+    ],
+    "문헌정보학과": [
+      {
+        "title": "HOME",
+        "link": "https://lis.kku.ac.kr/index.do",
+        "date": "",
+        "department": "문헌정보학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "문헌정보학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "문헌정보학과"
+      }
+    ],
+    "유아교육과": [
+      {
+        "title": "HOME",
+        "link": "https://ece.kku.ac.kr/index.do",
+        "date": "",
+        "department": "유아교육과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "유아교육과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "유아교육과"
+      }
+    ],
+    "사회복지학과": [
+      {
+        "title": "HOME",
+        "link": "https://sw.kku.ac.kr/index.do",
+        "date": "",
+        "department": "사회복지학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "사회복지학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "사회복지학과"
+      }
+    ],
+    "신문방송학과": [
+      {
+        "title": "HOME",
+        "link": "https://masscom.kku.ac.kr/index.do",
+        "date": "",
+        "department": "신문방송학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "신문방송학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "신문방송학과"
+      }
+    ],
+    "동화.한국어문화학과": [
+      {
+        "title": "HOME",
+        "link": "https://korean.kku.ac.kr/index.do",
+        "date": "",
+        "department": "동화.한국어문화학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "동화.한국어문화학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "동화.한국어문화학과"
+      }
+    ],
+    "영어문화학과": [
+      {
+        "title": "HOME",
+        "link": "https://kuell.kku.ac.kr/index.do",
+        "date": "",
+        "department": "영어문화학과"
+      },
+      {
+        "title": "글로컬캠퍼스",
+        "link": "https://www.kku.ac.kr/",
+        "date": "",
+        "department": "영어문화학과"
+      },
+      {
+        "title": "서울캠퍼스",
+        "link": "https://www.konkuk.ac.kr/",
+        "date": "",
+        "department": "영어문화학과"
+      }
+    ]
+  },
+  "KU자유전공학부": {
+    "KU자유전공학부": [
+      {
+        "title": "건국대학교 글로컬캠퍼스 KU자유전공학부 X 디자인조형자유전공학부 로컬크리에이터 특강",
+        "link": "javascript:fn_goDetail('36679','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "2025학년도 1학기 복지장학생 선발 안내",
+        "link": "javascript:fn_goDetail('36673','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "2025신입생 대상 기초교과목 진단평가",
+        "link": "javascript:fn_goDetail('36637','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "KU자유전공학부 전공학업지도교수, 학사진로지도교수 상담신청 방법",
+        "link": "javascript:fn_goDetail('36071','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "2025.2학기 재학생 폭력예방교육 안내",
+        "link": "javascript:fn_goDetail('36678','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "2025학년도 하반기 미국 인턴/취업 특강",
+        "link": "javascript:fn_goDetail('36677','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "KU자유전공학부 가이드북(2025학번 기준)",
+        "link": "javascript:fn_goDetail('36676','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "2025학년도 2학기 교내장학(성신의,건국사랑) 선발 기준",
+        "link": "javascript:fn_goDetail('36675','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "★2025학년도 2학기 건국사랑 장학생 선발★",
+        "link": "javascript:fn_goDetail('36674','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      },
+      {
+        "title": "[A+리포트 클리닉] \"성신의대학생활지도 최대 +2점\"/TLS 자율강좌",
+        "link": "javascript:fn_goDetail('36120','N','','N')",
+        "date": "",
+        "department": "KU자유전공학부"
+      }
+    ]
+  }
+}
