@@ -10,10 +10,16 @@
 DDalKKak/
 ├── kku_glocal_all_notices.json    # 크롤링된 데이터
 ├── backend/
-│   ├── app.py                      # Flask API 서버
+│   ├── app.py                      # FastAPI 서버
 │   └── requirements.txt            # Python 의존성
-└── frontend/
-    └── index.html                  # 웹 인터페이스
+├── frontend/
+│   ├── index.html                  # 웹 인터페이스
+│   └── images/
+│       └── ddalkkak_logo.png       # 로고 이미지
+├── Dockerfile                      # Docker 이미지 설정
+├── docker-compose.yml              # Docker Compose 설정
+├── nginx.conf                      # Nginx 설정
+└── deploy.sh                       # 배포 스크립트
 ```
 
 ## 🚀 실행 방법
@@ -26,12 +32,12 @@ DDalKKak/
 
 ### 🌍 AWS EC2 배포
 ```bash
-./deploy-aws.sh
-```
+# 1. 프로젝트 클론
+git clone https://github.com/J02H/DDalKKak.git
+cd DDalKKak
 
-### 🔒 SSL 인증서 (선택사항)
-```bash
-./setup-ssl.sh
+# 2. 배포 실행
+./deploy.sh
 ```
 
 ## 📊 수집 데이터
@@ -132,6 +138,6 @@ docker-compose restart backend
 ## 🌐 배포 환경
 
 - **프론트엔드**: Nginx (정적 파일 서빙)
-- **백엔드**: Flask (Python)
+- **백엔드**: FastAPI (Python)
 - **컨테이너**: Docker & Docker Compose
 - **프록시**: Nginx (API 프록시)
