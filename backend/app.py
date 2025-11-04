@@ -12,8 +12,17 @@ import threading
 from datetime import datetime
 import re
 from typing import Dict, List, Optional
+from firebase_config import get_db
 
 app = FastAPI(title="DDalKKak API", version="1.0.0")
+
+# Firebase 초기화
+try:
+    db = get_db()
+    print("✅ Firebase 연결 성공")
+except Exception as e:
+    print(f"❌ Firebase 연결 실패: {e}")
+    db = None
 
 app.add_middleware(
     CORSMiddleware,
@@ -71,6 +80,52 @@ USER_PROFILES = {
 }
 
 USER_BOOKMARKS = {}
+
+# Firebase 데이터베이스 함수들
+def create_user_in_db(username, user_data):
+    if db:
+        try:
+            db.collection('users').document(username).set(user_data)
+            return True
+        except Exception as e:
+            print(f"DB 사용자 생성 오류: {e}")
+    return False
+
+def get_user_from_db(username):
+    if db:
+        try:
+            doc = db.collection('users').document(username).get()
+            return doc.to_dict() if doc.exists else None
+        except Exception as e:
+            print(f"DB 사용자 조회 오류: {e}")
+    return None
+
+def add_bookmark_to_db(username, bookmark):
+    if db:
+        try:
+            db.collection('bookmarks').add({
+                'username': username,
+                'bookmark_id': bookmark['id'],
+                'title': bookmark['title'],
+                'college': bookmark['college'],
+                'department': bookmark['department'],
+                'date': bookmark['date'],
+                'link': bookmark['link'],
+                'added_date': bookmark['added_date']
+            })
+            return True
+        except Exception as e:
+            print(f"DB 즐겨찾기 추가 오류: {e}")
+    return False
+
+def get_bookmarks_from_db(username):
+    if db:
+        try:
+            docs = db.collection('bookmarks').where('username', '==', username).stream()
+            return [doc.to_dict() for doc in docs]
+        except Exception as e:
+            print(f"DB 즐겨찾기 조회 오류: {e}")
+    return []
 
 def extract_notice_summary(content):
     summary = {
@@ -367,6 +422,21 @@ async def register(user_data: UserRegister):
     if user_data.username in USERS:
         raise HTTPException(status_code=400, detail="이미 사용 중인 아이디입니다.")
     
+    # Firebase에 사용자 데이터 저장
+    user_profile = {
+        'username': user_data.username,
+        'password': user_data.password,
+        'name': user_data.name,
+        'email': user_data.email,
+        'department': user_data.department,
+        'student_id': user_data.student_id or '',
+        'join_date': '2025-11-03'
+    }
+    
+    if create_user_in_db(user_data.username, user_profile):
+        print(f"✅ Firebase에 사용자 {user_data.username} 저장 성공")
+    
+    # 메모리에도 저장 (백업)
     USERS[user_data.username] = user_data.password
     USER_PROFILES[user_data.username] = {
         'name': user_data.name,
