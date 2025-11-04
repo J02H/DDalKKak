@@ -1,31 +1,43 @@
-# 키 파일 (보안상 업로드 금지)
-*.pem
-*.key
-DDalKKak-Key.pem
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-
-# Docker
-.dockerignore
-
 # 로그 파일
 *.log
+server.log
+
+# 압축 파일
+*.tar.gz
+*.zip
 
 # 임시 파일
 *.tmp
-.DS_Store
+*.temp
 
-# IDE
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+
+# 환경 설정
+.env
+.venv/
+venv/
+
+# IDE 설정
 .vscode/
 .idea/
 
-# 배포 패키지
-*.tar.gz
+# macOS 파일
+.DS_Store
+
+# 배포 관련 임시 파일
+ddalkkak-*.tar.gz
+deploy-simple.sh
+
+# 백업 파일
+*.bak
+*.backup
+
+# 보안 키 파일들
+*.pem
+*.key
+*-key.json
+firebase-key.json
+DDalKKak-Key.pem

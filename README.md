@@ -1,6 +1,6 @@
 # 딸깍 (DDalKKak) - 건국대 글로컬캠퍼스 공지사항
 
-🌐 **공식 사이트**: [www.ddalkkak.com](https://www.ddalkkak.com)
+🌐 **공식 사이트**: [www.ddalkkak.net](https://www.ddalkkak.net) (예정)
 
 건국대학교 충주(글로컬캠퍼스) 각 학과의 공지사항을 한 곳에서 확인할 수 있는 서비스입니다.
 
@@ -10,16 +10,10 @@
 DDalKKak/
 ├── kku_glocal_all_notices.json    # 크롤링된 데이터
 ├── backend/
-│   ├── app.py                      # FastAPI 서버
+│   ├── app.py                      # Flask API 서버
 │   └── requirements.txt            # Python 의존성
-├── frontend/
-│   ├── index.html                  # 웹 인터페이스
-│   └── images/
-│       └── ddalkkak_logo.png       # 로고 이미지
-├── Dockerfile                      # Docker 이미지 설정
-├── docker-compose.yml              # Docker Compose 설정
-├── nginx.conf                      # Nginx 설정
-└── deploy.sh                       # 배포 스크립트
+└── frontend/
+    └── index.html                  # 웹 인터페이스
 ```
 
 ## 🚀 실행 방법
@@ -32,12 +26,12 @@ DDalKKak/
 
 ### 🌍 AWS EC2 배포
 ```bash
-# 1. 프로젝트 클론
-git clone https://github.com/J02H/DDalKKak.git
-cd DDalKKak
+./deploy-aws.sh
+```
 
-# 2. 배포 실행
-./deploy.sh
+### 🔒 SSL 인증서 (선택사항)
+```bash
+./setup-ssl.sh
 ```
 
 ## 📊 수집 데이터
@@ -92,15 +86,15 @@ cd DDalKKak
 
 #### 3단계: 도메인 연결
 ```bash
-# 도메인 설정 (ddalkkak.com)
-./setup-ssl.sh ddalkkak.com
+# 도메인 설정 (ddalkkak.net)
+./setup-ssl.sh ddalkkak.net
 ```
 
 **AWS Route 53 도메인 설정:**
-1. AWS Route 53에서 `ddalkkak.com` 도메인 구매
+1. AWS Route 53에서 `ddalkkak.net` 도메인 구매
 2. Hosted Zone에서 A 레코드 추가:
-   - `ddalkkak.com` → 서버 IP
-   - `www.ddalkkak.com` → 서버 IP
+   - `ddalkkak.net` → 서버 IP
+   - `www.ddalkkak.net` → 서버 IP
 3. DNS 전파 확인: `./check-dns.sh`
 4. 도메인 배포: `./deploy-domain.sh`
 
@@ -138,6 +132,6 @@ docker-compose restart backend
 ## 🌐 배포 환경
 
 - **프론트엔드**: Nginx (정적 파일 서빙)
-- **백엔드**: FastAPI (Python)
+- **백엔드**: Flask (Python)
 - **컨테이너**: Docker & Docker Compose
 - **프록시**: Nginx (API 프록시)

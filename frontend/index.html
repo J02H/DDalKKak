@@ -205,11 +205,6 @@
             <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #eee; font-size: 14px; color: #6c757d; text-align: center;">
                 <p>계정이 없으신가요? <a href="#" onclick="showRegisterModal()" style="color: #036B3F; text-decoration: none; font-weight: 600;">회원가입</a></p>
                 <div style="margin-top: 12px;">
-                    <strong>테스트 계정:</strong><br>
-                    admin / admin123<br>
-                    student / student123<br>
-                    test / test123
-                </div>
             </div>
         </div>
     </div>
@@ -298,7 +293,7 @@
     </div>
 
     <script>
-        const API_BASE = '/api';
+        const API_BASE = 'http://localhost:8001/api';
         let currentCategory = 'all';
         let allNotices = [];
         let currentPage = 1;
