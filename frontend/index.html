@@ -944,6 +944,7 @@
         // 회원가입 처리
         async function register(userData) {
             try {
+                console.log('회원가입 요청:', userData);
                 const response = await fetch(`${API_BASE}/register`, {
                     method: 'POST',
                     headers: {
@@ -952,17 +953,20 @@
                     body: JSON.stringify(userData)
                 });
                 
+                console.log('응답 상태:', response.status);
                 const data = await response.json();
+                console.log('응답 데이터:', data);
                 
                 if (data.success) {
                     hideRegisterModal();
                     alert('회원가입이 완료되었습니다! 로그인해주세요.');
                     showLoginModal();
                 } else {
-                    document.getElementById('registerError').textContent = data.message;
+                    document.getElementById('registerError').textContent = data.message || '회원가입에 실패했습니다.';
                 }
             } catch (error) {
-                document.getElementById('registerError').textContent = '회원가입 중 오류가 발생했습니다.';
+                console.error('회원가입 오류:', error);
+                document.getElementById('registerError').textContent = '회원가입 중 오류가 발생했습니다: ' + error.message;
             }
         }
         
