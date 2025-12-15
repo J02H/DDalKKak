@@ -1,0 +1,56 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@ddalkkak/components": [
+        "../packages/components/src"
+      ],
+      "@ddalkkak/components/*": [
+        "../packages/components/src/*"
+      ],
+      "@ddalkkak/utils": [
+        "../packages/utils/src"
+      ],
+      "@ddalkkak/utils/*": [
+        "../packages/utils/src/*"
+      ],
+      "@ddalkkak/api": [
+        "../packages/api/src"
+      ],
+      "@ddalkkak/api/*": [
+        "../packages/api/src/*"
+      ],
+      "tailwind.config": [
+        "./tailwind.config.js"
+      ]
+    },
+    "jsxImportSource": "nativewind"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

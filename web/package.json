@@ -1,0 +1,42 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@expo/html-elements": "workspace:*",
+    "@gluestack-ui/core": "workspace:*",
+    "@gluestack-ui/utils": "workspace:*",
+    "@gluestack/ui-next-adapter": "workspace:*",
+    "@legendapp/motion": "workspace:*",
+    "dom-helpers": "workspace:*",
+    "nativewind": "workspace:*",
+    "next": "workspace:*",
+    "react": "workspace:*",
+    "react-aria": "workspace:*",
+    "react-dom": "workspace:*",
+    "react-native": "workspace:*",
+    "react-native-reanimated": "workspace:*",
+    "react-native-safe-area-context": "workspace:*",
+    "react-native-svg": "workspace:*",
+    "react-native-web": "workspace:*",
+    "react-native-worklets": "workspace:*",
+    "react-stately": "workspace:*",
+    "tailwind-variants": "workspace:*"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "workspace:*",
+    "@types/node": "workspace:*",
+    "@types/react": "workspace:*",
+    "@types/react-dom": "workspace:*",
+    "eslint": "workspace:*",
+    "eslint-config-next": "workspace:*",
+    "tailwindcss": "workspace:*",
+    "typescript": "workspace:*"
+  }
+}

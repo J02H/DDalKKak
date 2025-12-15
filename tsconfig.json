@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./dist"
+  },
+  "files": [],
+  "references": [
+    { "path": "./packages/components" },
+    { "path": "./packages/utils" },
+    { "path": "./packages/api" },
+    { "path": "./web" }
+  ]
+}
+

@@ -1,0 +1,15 @@
+{
+  "name": "@ddalkkak/api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "dev": "echo 'api dev'",
+    "build": "echo 'api build'",
+    "lint": "echo 'api lint'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+
