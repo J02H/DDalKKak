@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
-    "lint": "pnpm -r lint"
+    "lint": "pnpm -r lint",
+    "web": "pnpm -C web dev"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "autoprefixer": "^10.4.20",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -18,7 +20,7 @@
     "next": "16.0.10",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "tailwindcss": "^4",
+    "tailwindcss": "3.4.13",
     "typescript": "^5"
   },
   "pnpm": {
@@ -36,7 +38,8 @@
       "eslint": "^9",
       "eslint-config-next": "16.0.10",
       "@tailwindcss/postcss": "^4",
-      "tailwindcss": "^4",
+      "autoprefixer": "^10.4.20",
+      "tailwindcss": "3.4.13",
       
       "@expo/html-elements": "^0.12.5",
       "@gluestack-ui/core": "^3.0.12",

@@ -35,6 +35,7 @@
     "@types/node": "workspace:*",
     "@types/react": "workspace:*",
     "@types/react-dom": "workspace:*",
+    "autoprefixer": "workspace:*",
     "eslint": "workspace:*",
     "eslint-config-next": "workspace:*",
     "tailwindcss": "workspace:*",
