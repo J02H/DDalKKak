@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import '@/app/globals.css';
-import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
+import { GluestackUIProvider } from '@ddalkkak/components';
+import StyledJsxRegistry from "./registry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GluestackUIProvider mode="dark">
-            {children}
-          </GluestackUIProvider>
+        <StyledJsxRegistry>
+            <GluestackUIProvider mode="light">
+                {children}
+            </GluestackUIProvider>
+          </StyledJsxRegistry>
         </body>
     </html>
   );

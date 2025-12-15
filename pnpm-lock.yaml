@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  '@ddalkkak/components': ./packages/components
+  '@ddalkkak/utils': ./packages/utils
+  '@ddalkkak/api': ./packages/api
   react: 19.2.1
   react-dom: 19.2.1
   next: 16.0.10
@@ -39,6 +42,15 @@ importers:
 
   .:
     dependencies:
+      '@ddalkkak/api':
+        specifier: ./packages/api
+        version: link:packages/api
+      '@ddalkkak/components':
+        specifier: ./packages/components
+        version: link:packages/components
+      '@ddalkkak/utils':
+        specifier: ./packages/utils
+        version: link:packages/utils
       '@expo/html-elements':
         specifier: ^0.12.5
         version: 0.12.5
@@ -155,6 +167,9 @@ importers:
 
   web:
     dependencies:
+      '@ddalkkak/components':
+        specifier: ./packages/components
+        version: link:packages/components
       '@expo/html-elements':
         specifier: ^0.12.5
         version: 0.12.5

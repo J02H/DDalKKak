@@ -23,6 +23,9 @@
   },
   "pnpm": {
     "overrides": {
+      "@ddalkkak/components": "./packages/components",
+      "@ddalkkak/utils": "./packages/utils",
+      "@ddalkkak/api": "./packages/api",
       "react": "19.2.1",
       "react-dom": "19.2.1",
       "next": "16.0.10",
@@ -60,6 +63,9 @@
     "pnpm": ">=8"
   },
   "dependencies": {
+    "@ddalkkak/components": "./packages/components",
+    "@ddalkkak/utils": "./packages/utils",
+    "@ddalkkak/api": "./packages/api",
     "@expo/html-elements": "^0.12.5",
     "@gluestack-ui/core": "^3.0.12",
     "@gluestack-ui/utils": "^3.0.13",

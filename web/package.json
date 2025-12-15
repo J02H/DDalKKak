@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ddalkkak/components": "workspace:*",
     "@expo/html-elements": "workspace:*",
     "@gluestack-ui/core": "workspace:*",
     "@gluestack-ui/utils": "workspace:*",

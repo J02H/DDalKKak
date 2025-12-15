@@ -1,2 +1,2 @@
-// Components exports
+export * from './primitives/gluestack-ui-provider';
 

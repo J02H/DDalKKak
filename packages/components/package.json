@@ -2,8 +2,13 @@
   "name": "@ddalkkak/components",
   "version": "1.0.0",
   "private": true,
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json",
+    "./primitives/*": "./src/primitives/*"
+  },
   "scripts": {
     "dev": "echo 'components dev'",
     "build": "echo 'components build'",

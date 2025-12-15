@@ -12,7 +12,7 @@
   "forwardPorts": [3000, 5173],
 
   // 컨테이너 처음 만들 때 자동으로 실행할 명령어
-  "postCreateCommand": "cd backend && npm install && cd ../frontend && npm install",
+  "postCreateCommand": "cd backend && npm install && cd ../frontend && npm install && pnpm install",
 
   "customizations": {
     "vscode": {
