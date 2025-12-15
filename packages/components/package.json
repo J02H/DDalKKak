@@ -1,0 +1,20 @@
+{
+  "name": "@ddalkkak/components",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "dev": "echo 'components dev'",
+    "build": "echo 'components build'",
+    "lint": "echo 'components lint'"
+  },
+  "dependencies": {
+    "@expo/html-elements": "workspace:*",
+    "@gorhom/bottom-sheet": "workspace:*",
+    "@legendapp/motion": "workspace:*",
+    "lucide-react-native": "workspace:*",
+    "react-native-safe-area-context": "workspace:*",
+    "react-native-svg": "workspace:*"
+  }
+}
