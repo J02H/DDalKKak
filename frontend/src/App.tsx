@@ -1,10 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { getHealth } from './api/client'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [backendStatus, setBackendStatus] = useState<'checking' | 'connected' | 'disconnected'>('checking')
+
+  useEffect(() => {
+    getHealth()
+      .then(() => setBackendStatus('connected'))
+      .catch(() => setBackendStatus('disconnected'))
+  }, [])
+
+  const statusText = {
+    checking: '⏳ Checking backend...',
+    connected: '✅ Backend connected',
+    disconnected: '❌ Backend disconnected',
+  }[backendStatus]
+
+  const statusColor = {
+    checking: '#888',
+    connected: '#4caf50',
+    disconnected: '#f44336',
+  }[backendStatus]
 
   return (
     <>
@@ -27,6 +48,9 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
+      </p>
+      <p style={{ color: statusColor, fontWeight: 'bold', marginTop: '1rem' }}>
+        {statusText}
       </p>
     </>
   )

@@ -4,27 +4,17 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-
-  // 컨테이너 안에서 열 기본 폴더 (프로젝트 루트)
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-
-  // Next.js(3000), Vite(5173) 포트 열기
   "forwardPorts": [3000, 5173],
-
-  // 컨테이너 처음 만들 때 자동으로 실행할 명령어
-  "postCreateCommand": "cd backend && npm install && cd ../frontend && npm install",
-
+  "postCreateCommand": "npm install && npm run install:all",
   "customizations": {
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss",
-        "esbenp.prettier-vscode"
+        "bradlc.vscode-tailwindcss"
       ]
     }
   },
-
-  // 터미널에서 root 권한 필요 없게
   "remoteUser": "node"
 }
